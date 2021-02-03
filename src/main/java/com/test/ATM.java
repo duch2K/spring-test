@@ -9,6 +9,7 @@ public class ATM implements BankService {
 
     public ATM(Bank bank) {
         this.bank = bank;
+        in = new Scanner(System.in);
     }
 
     public void run() {
