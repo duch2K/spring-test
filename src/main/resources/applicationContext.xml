@@ -7,12 +7,38 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean></bean>
-    <bean></bean>
-    <bean></bean>
-    
-    <bean id="bankBean" class="com.test.Bank">
-        pro
+    <bean id="user1" class="com.test.Account">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="kayrat"/>
+        <constructor-arg index="2" value="1000"/>
+        <constructor-arg index="3" value="1234"/>
     </bean>
+    <bean id="user2" class="com.test.Account">
+        <constructor-arg index="0" value="2"/>
+        <constructor-arg index="1" value="nurtas"/>
+        <constructor-arg index="2" value="2000"/>
+        <constructor-arg index="3" value="4321"/>
+    </bean>
+    <bean id="user3" class="com.test.Account">
+        <constructor-arg index="0" value="3"/>
+        <constructor-arg index="1" value="nyusha"/>
+        <constructor-arg index="2" value="3000"/>
+        <constructor-arg index="3" value="123"/>
+    </bean>
+
+    <bean id="bankBean" class="com.test.Bank">
+        <constructor-arg name="accounts">
+            <list>
+                <ref bean="user1"/>
+                <ref bean="user2"/>
+                <ref bean="user3"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="atmBean" class="com.test.ATM">
+        <constructor-arg ref="bankBean"/>
+    </bean>
+
 
 </beans>

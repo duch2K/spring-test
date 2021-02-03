@@ -6,15 +6,11 @@ public class Account {
     private double balance;
     private int pin;
 
-    private static int idCount = 1;
-
-    public Account(String userName, double balance, int pin) {
-        this.id = idCount;
+    public Account(int id, String userName, double balance, int pin) {
+        this.id = id;
         this.userName = userName;
         this.balance = balance;
         this.pin = pin;
-
-        idCount++;
     }
 
     public int getId() {

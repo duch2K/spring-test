@@ -8,6 +8,7 @@ public class Main {
                 "applicationContext"
         );
 
-
+        ATM atm = context.getBean("atmBean", ATM.class);
+        atm.run();
     }
 }
